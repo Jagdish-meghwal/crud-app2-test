@@ -1,0 +1,25 @@
+<template name="app">
+    {{>form}}
+    {{>post}}
+</template>
+
+<template name="form">
+    <body >
+        <form method="post" style="max-width:500px;">
+            <input class="input-field" type="text" placeholder="title" name="title" id="title">
+            <input class="input-field" type="text" placeholder="description" name="description" id="description">
+            <button class="form-btn" type="submit">Post</button>  
+        </form>
+    </body>
+</template>
+
+<template name='post'>
+    {{#each posts}}
+    <div class="card">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+        <p><button class='edit'>Edit</button><button class='delete'>Delete</button></p>
+        
+      </div>
+      {{/each}}
+</template>
