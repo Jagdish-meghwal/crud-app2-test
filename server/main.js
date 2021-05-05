@@ -9,9 +9,14 @@ var app = express();
 app.use(cors());
 app.use(express.json({ extended: true }));
 
-app.use('/display', (req,res)=>{
+app.get('/display',async (req,res)=>{  
+  res.json("get api called");
+})
 
-  res.json('hello from server');;
+app.post('/post',async(req,res)=>{
+  console.log('post');
+  res.json('post api called '+JSON.stringify(JSON.stringify(req.body)));
 });
-//app.listen(4000);
+
+app.listen(4000);
 WebApp.connectHandlers.use(app);
